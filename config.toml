@@ -19,6 +19,7 @@ author = "Planckeon Labs"
 # Menu items
 menu = [
     {url = "/", name = "Home"},
+    {url = "/ai-native/", name = "AI-Native"},
     {url = "/about/", name = "About"},
     {url = "https://github.com/planckeon", name = "GitHub"},
 ]
