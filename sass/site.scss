@@ -1,0 +1,423 @@
+/*
+ * Planckeon Labs - Deep Space Mystical Theme
+ * A self-contained dark theme with cosmic vibes
+ */
+
+// Reset and base
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+// Deep Space Color Palette
+:root {
+  --bg-primary: #0a0a12;
+  --bg-secondary: #12121f;
+  --bg-tertiary: #1a1a2e;
+  
+  --accent-primary: #7b68ee;
+  --accent-secondary: #00ced1;
+  --accent-gold: #c9a227;
+  
+  --text-primary: #e8e6e3;
+  --text-secondary: #a0a0a0;
+  --text-muted: #6b6b6b;
+  
+  --glow-primary: rgba(123, 104, 238, 0.3);
+  --glow-secondary: rgba(0, 206, 209, 0.2);
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  
+  // Subtle starfield
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 40px 70px, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 50px 160px, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1.5px 1.5px at 200px 50px, rgba(123,104,238,0.4), transparent),
+    radial-gradient(1px 1px at 250px 100px, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1.5px 1.5px at 350px 150px, rgba(0,206,209,0.3), transparent);
+  background-size: 450px 200px;
+}
+
+// Container
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+// Navigation
+nav {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--bg-tertiary);
+  margin-bottom: 2rem;
+  
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    
+    a {
+      color: var(--accent-gold);
+      text-decoration: none;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        color: var(--text-primary);
+        background: var(--bg-secondary);
+      }
+      
+      &.active {
+        background: var(--accent-primary);
+        color: var(--text-primary);
+      }
+    }
+  }
+}
+
+// Links
+a {
+  color: var(--accent-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: var(--accent-primary);
+  }
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 2.2rem;
+  text-shadow: 0 0 30px var(--glow-primary);
+}
+
+h2 {
+  font-size: 1.6rem;
+  border-bottom: 1px solid var(--bg-tertiary);
+  padding-bottom: 0.5rem;
+}
+
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.1rem; }
+
+// Paragraphs
+p {
+  margin: 1rem 0;
+  color: var(--text-secondary);
+}
+
+// Lists
+ul, ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+  
+  li {
+    margin: 0.5rem 0;
+  }
+}
+
+// Hero section
+.hero {
+  text-align: center;
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+  
+  .hero-logo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 20px var(--glow-primary));
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hero-tagline {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    
+    strong {
+      color: var(--accent-secondary);
+    }
+  }
+  
+  .hero-description {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+}
+
+// Buttons
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--accent-primary) 0%, #5a4fcf 100%);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 0.5rem;
+  font-weight: 500;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px var(--glow-primary);
+    color: var(--text-primary);
+  }
+  
+  &.secondary {
+    background: transparent;
+    border: 1px solid var(--accent-secondary);
+    color: var(--accent-secondary);
+    
+    &:hover {
+      background: var(--accent-secondary);
+      color: var(--bg-primary);
+    }
+  }
+}
+
+// Sections
+section {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--bg-tertiary);
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+// Feature cards
+.feature-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--bg-tertiary);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  
+  &:hover {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 20px var(--glow-primary);
+  }
+  
+  h3 {
+    color: var(--accent-secondary);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    
+    a {
+      color: inherit;
+      
+      &:hover {
+        color: var(--accent-primary);
+      }
+    }
+  }
+  
+  p {
+    margin: 0.5rem 0;
+  }
+}
+
+// Badges
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--accent-primary);
+  border-radius: 4px;
+  color: var(--accent-primary);
+  font-size: 0.8rem;
+  margin: 0.25rem 0.25rem 0.25rem 0;
+}
+
+// Blockquotes
+blockquote {
+  border-left: 3px solid var(--accent-primary);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: var(--text-secondary);
+  font-style: italic;
+  
+  cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-style: normal;
+    color: var(--text-muted);
+    
+    &::before {
+      content: "— ";
+    }
+  }
+}
+
+// Tables
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  
+  th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--bg-tertiary);
+  }
+  
+  th {
+    color: var(--text-primary);
+    font-weight: 600;
+    background: var(--bg-secondary);
+  }
+  
+  td {
+    color: var(--text-secondary);
+  }
+  
+  tr:hover td {
+    background: var(--bg-secondary);
+  }
+}
+
+// Code
+code {
+  font-family: "JetBrains Mono", "Fira Code", "SF Mono", monospace;
+  background: var(--bg-secondary);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--bg-secondary);
+  border: 1px solid var(--bg-tertiary);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+  
+  code {
+    background: none;
+    padding: 0;
+  }
+}
+
+// Horizontal rule
+hr {
+  border: none;
+  border-top: 1px solid var(--bg-tertiary);
+  margin: 2rem 0;
+}
+
+// Footer
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--text-muted);
+  margin-top: 2rem;
+  border-top: 1px solid var(--bg-tertiary);
+  
+  a {
+    color: var(--accent-secondary);
+  }
+  
+  blockquote {
+    border-left: none;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto 1rem;
+  }
+}
+
+// Article (for pages)
+article {
+  h1 {
+    margin-top: 0;
+  }
+}
+
+// Responsive
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+  
+  .container {
+    padding: 1rem;
+  }
+  
+  .hero {
+    padding: 2rem 0;
+    
+    .hero-title {
+      font-size: 1.8rem;
+    }
+    
+    .hero-tagline {
+      font-size: 1rem;
+    }
+    
+    .hero-logo {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  
+  nav .nav-links {
+    justify-content: center;
+  }
+  
+  .cta-button {
+    display: block;
+    text-align: center;
+  }
+}
+
+// Giallo syntax highlighting support
+.giallo-l {
+  display: inline-block;
+  min-height: 1lh;
+  width: 100%;
+}
+
+.giallo-ln {
+  display: inline-block;
+  user-select: none;
+  margin-right: 0.4em;
+  padding: 0.4em;
+  min-width: 3ch;
+  text-align: right;
+  opacity: 0.5;
+}

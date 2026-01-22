@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page not found" />
+  
+  <title>404 - Page Not Found | {{ config.title }}</title>
+  
+  <link rel="stylesheet" href="{{ get_url(path='site.css', trailing_slash=false) | safe }}">
+  <link rel="icon" type="image/png" href="{{ get_url(path='logo.png', trailing_slash=false) | safe }}">
+</head>
+
+<body class="hack dark main container">
+  <!-- Navigation -->
+  {% if config.extra.menu %}
+  <header class="nav-header">
+    <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="navbar">
+      <div class="nav-links">
+        {% for item in config.extra.menu %}
+        <a itemprop="url" href="{{ item.url | safe }}">
+          <span itemprop="name">{{ item.name }}</span></a>
+        {% endfor %}
+      </div>
+    </nav>
+  </header>
+  {% endif %}
+
+  <main>
+    <div class="hero" style="padding: 4rem 0;">
+      <h1 class="hero-title">404</h1>
+      <p class="hero-tagline">Page Not Found</p>
+      <p class="hero-description">
+        The page you're looking for doesn't exist or has been moved.
+      </p>
+      <div style="margin-top: 2rem;">
+        <a href="{{ config.base_url }}" class="cta-button">Return Home</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p style="text-align: center;">
+      <a href="{{ config.base_url }}">Home</a> · 
+      <a href="https://github.com/planckeon">GitHub</a>
+    </p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+# Planckeon Labs Website Configuration
+base_url = "https://planckeon.github.io"
+title = "Planckeon Labs"
+description = "R&D in fast | intelligent software tooling for theoretical physics"
+default_language = "en"
+compile_sass = true
+build_search_index = false
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+
+[markdown]
+[markdown.highlighting]
+theme = "catppuccin-mocha"
+
+[extra]
+# Site metadata
+author = "Planckeon Labs"
+
+# Menu items
+menu = [
+    {url = "/", name = "Home"},
+    {url = "/about/", name = "About"},
+    {url = "https://github.com/planckeon", name = "GitHub"},
+]
+
+# Enable LaTeX support
+latex = true
+
+taxonomies = []

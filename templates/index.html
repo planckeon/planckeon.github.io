@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ config.description }}" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ config.title }}" />
+  <meta property="og:description" content="{{ config.description }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ config.base_url }}" />
+  <meta property="og:image" content="{{ get_url(path='logo.png', trailing_slash=false) | safe }}" />
+  
+  <title>{{ config.title }}</title>
+  
+  <link rel="stylesheet" href="{{ get_url(path='site.css', trailing_slash=false) | safe }}">
+  <link rel="icon" type="image/png" href="{{ get_url(path='logo.png', trailing_slash=false) | safe }}">
+</head>
+
+<body class="hack dark main container">
+  <!-- Navigation -->
+  {% if config.extra.menu %}
+  <header class="nav-header">
+    <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="navbar">
+      <div class="nav-links">
+        {% for item in config.extra.menu %}
+        <a itemprop="url"
+          class="{% if item.url == current_url %}active{% endif %}"
+          href="{{ item.url | safe }}">
+          <span itemprop="name">{{ item.name }}</span></a>
+        {% endfor %}
+      </div>
+    </nav>
+  </header>
+  {% endif %}
+
+  <main>
+    <!-- Hero Section -->
+    <div class="hero">
+      <img src="{{ get_url(path='logo.png', trailing_slash=false) | safe }}" alt="Planckeon Labs" class="hero-logo">
+      <h1 class="hero-title">Planckeon Labs</h1>
+      <p class="hero-tagline">R&D in <strong>fast</strong> | <strong>intelligent</strong> software tooling for theoretical physics</p>
+      <p class="hero-description">
+        Accelerating the quest for quantum gravity through high-performance computation.
+        We build tools that bridge the gap between cutting-edge physical theory and practical computational implementation.
+      </p>
+      <div style="margin-top: 2rem;">
+        <a href="https://github.com/planckeon" class="cta-button">Explore GitHub</a>
+        <a href="{{ get_url(path='about', trailing_slash=false) | safe }}" class="cta-button secondary">Learn More</a>
+      </div>
+    </div>
+
+    <!-- Why Planckeon Section -->
+    <section>
+      <h2>Why "Planckeon"?</h2>
+      <p>
+        Our name comes from <strong>planckeons</strong>—theoretical entities at the Planck scale (~10<sup>-35</sup> m) 
+        where quantum mechanics and gravity merge. Recent research models them as the fundamental "grains" of spacetime, 
+        realizing the <strong>ER=EPR conjecture</strong> through networks of quantum wormholes.
+      </p>
+      <p>
+        Just as planckeons bridge the quantum and gravitational realms, we build software that bridges 
+        theoretical physics and practical computation.
+      </p>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section>
+      <h2>Featured Projects</h2>
+      
+      <div class="feature-card">
+        <h3><a href="https://github.com/planckeon/autograv">autograv</a></h3>
+        <p>Bridging numerical relativity and automatic differentiation using JAX. Enables differentiable simulations of curved spacetime.</p>
+        <span class="badge">JAX</span>
+        <span class="badge">Python</span>
+        <span class="badge">Numerical Relativity</span>
+      </div>
+      
+      <div class="feature-card">
+        <h3><a href="https://github.com/planckeon/pauliz">pauliz</a></h3>
+        <p>High-performance, zero-dependency quantum computing simulation library written in Zig. Blazingly fast state vector operations.</p>
+        <span class="badge">Zig</span>
+        <span class="badge">Quantum Computing</span>
+        <span class="badge">Zero-Dependency</span>
+      </div>
+      
+      <div class="feature-card">
+        <h3><a href="https://github.com/planckeon/attn-as-bilinear-form">attn-as-bilinear-form</a></h3>
+        <p>A physicist's guide to transformer attention via tensor calculus, statistical mechanics, and differential geometry.</p>
+        <span class="badge">Research</span>
+        <span class="badge">Deep Learning</span>
+        <span class="badge">Mathematics</span>
+      </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section>
+      <h2>Our Philosophy</h2>
+      <blockquote>
+        Speed without intelligence is noise.<br>
+        Intelligence without speed is impractical.<br>
+        We build tools that are both.
+      </blockquote>
+      <p>
+        Theoretical physics demands software that can handle symbolic manipulation at scale, 
+        numerical precision at the limits of floating-point, algorithmic sophistication for NP-hard problems, 
+        and intuitive interfaces for domain experts.
+      </p>
+      <p>
+        We don't believe researchers should choose between power and usability.
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <blockquote>
+      "The universe is not only queerer than we suppose, but queerer than we can suppose."
+      <cite>— J.B.S. Haldane</cite>
+    </blockquote>
+    <p>
+      <strong>Building tools for those who explore the queerness.</strong>
+    </p>
+    <p style="margin-top: 1rem;">
+      <a href="https://github.com/planckeon">GitHub</a> · 
+      <a href="https://github.com/planckeon/.github#readme">About</a>
+    </p>
+  </footer>
+
+  {% if config.extra.latex %}
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  {% endif %}
+</body>
+
+</html>

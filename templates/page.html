@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  {% if page.description %}
+  <meta name="description" content="{{ page.description }}" />
+  {% else %}
+  <meta name="description" content="{{ config.description }}" />
+  {% endif %}
+  
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ config.title }}</title>
+  
+  <link rel="stylesheet" href="{{ get_url(path='site.css', trailing_slash=false) | safe }}">
+  <link rel="icon" type="image/png" href="{{ get_url(path='logo.png', trailing_slash=false) | safe }}">
+</head>
+
+<body class="hack dark main container">
+  <!-- Navigation -->
+  {% if config.extra.menu %}
+  <header class="nav-header">
+    <nav itemscope itemtype="http://schema.org/SiteNavigationElement" class="navbar">
+      <div class="nav-links">
+        {% for item in config.extra.menu %}
+        <a itemprop="url"
+          class="{% if current_url and item.url == current_url %}active{% endif %}"
+          href="{{ item.url | safe }}">
+          <span itemprop="name">{{ item.name }}</span></a>
+        {% endfor %}
+      </div>
+    </nav>
+  </header>
+  {% endif %}
+
+  <main>
+    <article itemscope itemtype="http://schema.org/Article">
+      <header>
+        <h1 itemprop="headline">{{ page.title }}</h1>
+      </header>
+      <div itemprop="articleBody">
+        {{ page.content | safe }}
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <hr>
+    <p style="text-align: center;">
+      <a href="{{ config.base_url }}">Home</a> · 
+      <a href="https://github.com/planckeon">GitHub</a>
+    </p>
+  </footer>
+
+  {% if config.extra.latex %}
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  {% endif %}
+</body>
+
+</html>
