@@ -42,98 +42,121 @@
     <div class="hero">
       <img src="{{ get_url(path='logo.png', trailing_slash=false) | safe }}" alt="Planckeon Labs" class="hero-logo">
       <h1 class="hero-title">Planckeon Labs</h1>
-      <p class="hero-tagline">R&D in <strong>fast</strong> | <strong>intelligent</strong> software tooling for theoretical physics</p>
+      <p class="hero-tagline">R&D in <strong>high-performance</strong> computational physics</p>
       <p class="hero-description">
-        Accelerating the quest for quantum gravity through high-performance computation.
-        We build tools that bridge the gap between cutting-edge physical theory and practical computational implementation.
+        When physics meets systems programming. We build fast software to understand the universe.
       </p>
       <div style="margin-top: 2rem;">
         <a href="https://github.com/planckeon" class="cta-button">Explore GitHub</a>
-        <a href="{{ get_url(path='about', trailing_slash=false) | safe }}" class="cta-button secondary">Learn More</a>
+        <a href="{{ get_url(path='about', trailing_slash=false) | safe }}" class="cta-button secondary">About</a>
       </div>
     </div>
 
-    <!-- Why Planckeon Section -->
+    <!-- Flagship Projects Section -->
     <section>
-      <h2>Why "Planckeon"?</h2>
-      <p>
-        Our name comes from <strong>planckeons</strong>—theoretical entities at the Planck scale (~10<sup>-35</sup> m) 
-        where quantum mechanics and gravity merge. Recent research models them as the fundamental "grains" of spacetime, 
-        realizing the <strong>ER=EPR conjecture</strong> through networks of quantum wormholes.
-      </p>
-      <p>
-        Just as planckeons bridge the quantum and gravitational realms, we build software that bridges 
-        theoretical physics and practical computation.
-      </p>
+      <h2>Flagship Projects</h2>
+      
+      <div class="feature-card flagship">
+        <h3><a href="https://github.com/planckeon/nufast">nufast</a> — Neutrino Oscillations at 25 ns</h3>
+        <p>
+          Fast three-flavor neutrino oscillation probabilities in <strong>Rust</strong>, <strong>Zig</strong>, and <strong>WebAssembly</strong>.
+          Port of the <a href="https://arxiv.org/abs/2405.02400">NuFast algorithm</a> by P.B. Denton.
+          The Zig SIMD implementation runs at <strong>21 ns per calculation</strong>—4.7× faster than the original.
+        </p>
+        <p style="margin-top: 0.5rem;">
+          <a href="https://github.com/planckeon/nufast">GitHub</a> · 
+          <a href="https://crates.io/crates/nufast">crates.io</a> · 
+          <a href="https://github.com/planckeon/nufast/blob/main/paper/nufast-benchmark.pdf">Paper</a>
+        </p>
+        <span class="badge">Rust</span>
+        <span class="badge">Zig</span>
+        <span class="badge">WASM</span>
+        <span class="badge">SIMD</span>
+        <span class="badge">Neutrino Physics</span>
+      </div>
+      
+      <div class="feature-card flagship">
+        <h3><a href="https://planckeon.github.io/itn/">Imagining the Neutrino</a> — Interactive Visualization</h3>
+        <p>
+          Watch a neutrino fly through space as its flavor changes. Real-time probability calculations powered by nufast WASM.
+          11 experiment presets, δCP slider, matter effects, 7 languages, 60fps canvas rendering.
+        </p>
+        <p style="margin-top: 0.5rem;">
+          <a href="https://planckeon.github.io/itn/" class="cta-button" style="display: inline-block; padding: 0.3rem 0.8rem;">▶ Launch Demo</a>
+          <a href="https://github.com/planckeon/itn">GitHub</a>
+        </p>
+        <span class="badge">React</span>
+        <span class="badge">TypeScript</span>
+        <span class="badge">WASM</span>
+        <span class="badge">Educational</span>
+      </div>
     </section>
 
-    <!-- Featured Projects Section -->
+    <!-- More Projects Section -->
     <section>
-      <h2>Featured Projects</h2>
+      <h2>More Projects</h2>
       
       <div class="feature-card">
-        <h3><a href="https://github.com/planckeon/autograv">autograv</a></h3>
-        <p>Bridging numerical relativity and automatic differentiation using JAX. Enables differentiable simulations of curved spacetime.</p>
-        <span class="badge">JAX</span>
-        <span class="badge">Python</span>
-        <span class="badge">Numerical Relativity</span>
+        <h3><a href="https://planckeon.github.io/attn-as-bilinear-form/">attn-as-bilinear-form</a></h3>
+        <p>A physicist's guide to transformer attention via tensor calculus, statistical mechanics, and differential geometry.</p>
+        <span class="badge">Research</span>
+        <span class="badge">Deep Learning</span>
+        <span class="badge">Mathematics</span>
       </div>
       
       <div class="feature-card">
         <h3><a href="https://github.com/planckeon/pauliz">pauliz</a></h3>
-        <p>High-performance, zero-dependency quantum computing simulation library written in Zig. Blazingly fast state vector operations.</p>
+        <p>High-performance, zero-dependency quantum computing simulation library written in Zig.</p>
         <span class="badge">Zig</span>
         <span class="badge">Quantum Computing</span>
         <span class="badge">Zero-Dependency</span>
       </div>
       
       <div class="feature-card">
-        <h3><a href="https://github.com/planckeon/attn-as-bilinear-form">attn-as-bilinear-form</a></h3>
-        <p>A physicist's guide to transformer attention via tensor calculus, statistical mechanics, and differential geometry.</p>
-        <span class="badge">Research</span>
-        <span class="badge">Deep Learning</span>
-        <span class="badge">Mathematics</span>
+        <h3><a href="https://github.com/planckeon/autograv">autograv</a></h3>
+        <p>Bridging numerical relativity and automatic differentiation using JAX. Differentiable simulations of curved spacetime.</p>
+        <span class="badge">JAX</span>
+        <span class="badge">Python</span>
+        <span class="badge">Numerical Relativity</span>
+      </div>
+      
+      <div class="feature-card">
+        <h3><a href="https://github.com/planckeon/pytrino">pytrino</a></h3>
+        <p>Neutrino oscillations at the speed of C. Python/Cython library from the original undergrad thesis work.</p>
+        <span class="badge">Python</span>
+        <span class="badge">Cython</span>
+        <span class="badge">PyPI</span>
       </div>
     </section>
 
     <!-- Philosophy Section -->
     <section>
-      <h2>Our Philosophy</h2>
+      <h2>Philosophy</h2>
       <blockquote>
-        Speed without intelligence is noise.<br>
-        Intelligence without speed is impractical.<br>
-        We build tools that are both.
+        Speed matters. If your simulation takes hours, you'll run it once.<br>
+        If it takes milliseconds, you'll explore the parameter space.
       </blockquote>
       <p>
-        Theoretical physics demands software that can handle symbolic manipulation at scale, 
-        numerical precision at the limits of floating-point, algorithmic sophistication for NP-hard problems, 
-        and intuitive interfaces for domain experts.
+        Systems programming is underrated in physics. Most physicists default to Python—fine for prototypes, 
+        but production tools should be fast. Zig and Rust let you write high-level code that compiles to 
+        what you'd write by hand.
       </p>
       <p>
-        We don't believe researchers should choose between power and usability.
+        All projects are <strong>MIT licensed</strong> and open source.
       </p>
     </section>
 
     <!-- AI-Native Section -->
     <section>
-      <h2>AI-Native Physics Research</h2>
+      <h2>AI-Native Physics</h2>
       <p>
         <em>"Could AI develop a consistent theory of quantum gravity?"</em>
       </p>
       <p>
-        We believe <strong>superintelligence—not larger colliders</strong>—may be the key to unlocking 
-        the mysteries of the universe. The Planck scale remains experimentally inaccessible by 16 orders 
-        of magnitude, but the mathematical structures of quantum gravity are accessible to intelligence.
+        The Planck scale remains experimentally inaccessible by 16 orders of magnitude. 
+        But the mathematical structures of quantum gravity are accessible to intelligence.
+        We're building AI-native infrastructure for physics research.
       </p>
-      <p>
-        We're building AI-native infrastructure for physics research:
-      </p>
-      <ul style="color: var(--text-secondary); margin-bottom: 1rem;">
-        <li><strong>Neurosymbolic systems</strong> — LLMs that verify their reasoning with formal methods</li>
-        <li><strong>MCP servers for physics</strong> — giving models access to CAS, simulations, and proof assistants</li>
-        <li><strong>High-performance foundations</strong> — Zig, Rust, and Mojo for systems-level AI infrastructure</li>
-        <li><strong>Research agents</strong> — exploration, verification, and synthesis across the literature</li>
-      </ul>
       <div style="margin-top: 1.5rem;">
         <a href="{{ get_url(path='ai-native', trailing_slash=false) | safe }}" class="cta-button secondary">Learn More</a>
       </div>
@@ -146,9 +169,6 @@
       "The universe is not only queerer than we suppose, but queerer than we can suppose."
       <cite>— J.B.S. Haldane</cite>
     </blockquote>
-    <p>
-      <strong>Building tools for those who explore the queerness.</strong>
-    </p>
     <p style="margin-top: 1rem;">
       <a href="https://github.com/planckeon">GitHub</a> · 
       <a href="https://github.com/planckeon/.github#readme">About</a>
